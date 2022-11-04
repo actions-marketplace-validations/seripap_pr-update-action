@@ -9884,7 +9884,7 @@ async function run() {
     core.debug('Attempting to update Pull Request')
     const octokit = github.getOctokit(inputs.token);
     core.debug(JSON.stringify(request));
-    const response = await octokit.pulls.update(request);
+    const response = await octokit.rest.pulls.update(request);
     core.debug(JSON.stringify(response));
 
     core.info(`Response: ${response.status}`);
