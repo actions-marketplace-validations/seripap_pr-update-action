@@ -131,7 +131,7 @@ async function run() {
       replace: body.toLowerCase() !== processedBodyText.toLowerCase(),
     })[inputs.bodyUpdateAction] || false;
 
-    // core.setOutput('bodyUpdated', updateBody.toString());
+    core.setOutput('bodyUpdated', updateBody.toString());
 
     if (updateBody) {
       request.body = ({
@@ -149,7 +149,9 @@ async function run() {
       return;
     }
 
+    core.debug('Attempting to update Pull Request')
     const octokit = github.getOctokit(inputs.token);
+    core.debug(JSON.stringify(request));
     const response = await octokit.pulls.update(request);
 
     core.info(`Response: ${response.status}`);
