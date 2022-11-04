@@ -29,6 +29,7 @@ Create a workflow yaml file (for e.g. `.github/workflows/update-pr.yml`). See [C
 - `body-newline-count`: number of newlines to separate body and its prefix or suffix (default: `2`)
 - `body-uppercase-base-match`: whether to uppercase matched text from base branch in body (default: `true`)
 - `body-uppercase-head-match`: whether to uppercase matched text from head branch in body (default: `true`)
+- `allow-failure`: whether to ignore results of the action and pass regardless if any actions were completed from this workflow (default: `true`)
 
 #### Notes:
 

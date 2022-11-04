@@ -60,6 +60,10 @@ inputs:
     description: "Should uppercase matched text from head branch in body"
     required: false
     default: "true"
+  allow-failure:
+    description: "Pass the job regardless of what happens"
+    required: false
+    default: "true"
 outputs:
   baseMatch:
     description: "Matched text from base branch if any"
