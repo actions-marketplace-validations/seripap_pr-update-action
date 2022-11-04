@@ -1,6 +1,6 @@
 {
   "name": "pr-update-action",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "PR Update GitHub Action",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tzkhan/pr-update-action.git"
+    "url": "git+https://github.com/seripap/pr-update-action.git"
   },
   "keywords": [
     "GitHub",
@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/tzkhan/pr-update-action/#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0"
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
   },
   "devDependencies": {
     "eslint": "^6.3.0",

@@ -1,9 +1,11 @@
 # Pull Request Updater
 
-![Update Pull Request](https://github.com/tzkhan/pr-update-action/workflows/Update%20Pull%20Request/badge.svg)
-[![Release](https://img.shields.io/github/release/tzkhan/pr-update-action.svg)](https://github.com/tzkhan/pr-update-action/releases/latest)
+![Update Pull Request](https://github.com/seripap/pr-update-action/workflows/Update%20Pull%20Request/badge.svg)
+[![Release](https://img.shields.io/github/release/seripap/pr-update-action.svg)](https://github.com/seripap/pr-update-action/releases/latest)
 
 This is a GitHub Action that updates a pull request with information extracted from branch name. The branch could be either base or head branch or both. The pull request title and body can either be prefixed, suffixed or replaced.
+
+This is a fork of [tzkhan/pr-update-action](https://github.com/tzkhan/pr-update-action).
 
 ## Usage
 
@@ -60,7 +62,7 @@ jobs:
   update_pr:
     runs-on: ubuntu-latest
     steps:
-    - uses: tzkhan/pr-update-action@v2
+    - uses: seripap/pr-update-action@v2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         base-branch-regex: '[a-z\d-_.\\/]+'
