@@ -13,9 +13,11 @@ Create a workflow yaml file (for e.g. `.github/workflows/update-pr.yml`). See [C
 ### Inputs
 
 #### Required
+
 - `repo-token`: secret token to allow making calls to GitHub's rest API (for e.g. `${{ secrets.GITHUB_TOKEN }}`)
 
 #### Optional
+
 - `base-branch-regex`: regex to match text from the base branch name
 - `head-branch-regex`: regex to match text from the head branch name
 - `lowercase-branch`: whether to lowercase branch name before matching (default: `true`)
@@ -62,7 +64,7 @@ jobs:
   update_pr:
     runs-on: ubuntu-latest
     steps:
-    - uses: seripap/pr-update-action@v3
+    - uses: seripap/pr-update-action@v3.1.1
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         base-branch-regex: '[a-z\d-_.\\/]+'
@@ -78,7 +80,9 @@ jobs:
 produces this effect... :point_down:
 
 #### before:
+
 ![pr before](img/pr-before.png)
 
 #### after:
+
 ![pr after](img/pr-after.png)
