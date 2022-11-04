@@ -153,6 +153,7 @@ async function run() {
     const octokit = github.getOctokit(inputs.token);
     core.debug(JSON.stringify(request));
     const response = await octokit.pulls.update(request);
+    core.debug(JSON.stringify(response));
 
     core.info(`Response: ${response.status}`);
     if (response.status !== 200) {
@@ -164,6 +165,7 @@ async function run() {
     }
   }
   catch (error) {
+    core.error('Catach all failed')
     core.error(error);
     core.setFailed(error.message);
   }
