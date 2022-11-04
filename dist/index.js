@@ -9863,7 +9863,7 @@ async function run() {
       replace: body.toLowerCase() !== processedBodyText.toLowerCase(),
     })[inputs.bodyUpdateAction] || false;
 
-    core.setOutput('bodyUpdated', updateBody.toString());
+    // core.setOutput('bodyUpdated', updateBody.toString());
 
     if (updateBody) {
       request.body = ({
@@ -9877,6 +9877,7 @@ async function run() {
     }
 
     if (!updateTitle && !updateBody) {
+      core.warning('No updates made to title or body');
       return;
     }
 
