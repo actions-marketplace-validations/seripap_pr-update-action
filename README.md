@@ -64,7 +64,7 @@ jobs:
   update_pr:
     runs-on: ubuntu-latest
     steps:
-    - uses: seripap/pr-update-action@v3.1.1
+    - uses: seripap/pr-update-action@v3.1.2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         base-branch-regex: '[a-z\d-_.\\/]+'

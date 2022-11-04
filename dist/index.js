@@ -9753,6 +9753,7 @@ async function run() {
       bodyNewlineCount: parseInt(core.getInput('body-newline-count')),
       bodyUppercaseBaseMatch: (core.getInput('body-uppercase-base-match').toLowerCase() === 'true'),
       bodyUppercaseHeadMatch: (core.getInput('body-uppercase-head-match').toLowerCase() === 'true'),
+      allowFailure: (core.getInput('allow-failure').toLowerCase() === 'true'),
     }
 
     const baseBranchRegex = inputs.baseBranchRegex.trim();
@@ -9762,6 +9763,10 @@ async function run() {
     const matchHeadBranch = headBranchRegex.length > 0;
 
     if (!matchBaseBranch && !matchHeadBranch) {
+      if (inputs.allowFailure) {
+        core.warning('No branch regex values have been specified');
+        return;
+      }
       core.setFailed('No branch regex values have been specified');
       return;
     }
@@ -9778,6 +9783,10 @@ async function run() {
 
       const baseMatches = baseBranch.match(new RegExp(baseBranchRegex));
       if (!baseMatches) {
+        if (inputs.allowFailure) {
+          core.warning('Base branch name does not match given regex');
+          return;
+        }
         core.setFailed('Base branch name does not match given regex');
         return;
       }
@@ -9795,6 +9804,10 @@ async function run() {
 
       const headMatches = headBranch.match(new RegExp(headBranchRegex));
       if (!headMatches) {
+        if (inputs.allowFailure) {        
+          core.warning('Head branch name does not match given regex');
+          return;
+        }
         core.setFailed('Head branch name does not match given regex');
         return;
       }
@@ -9872,6 +9885,10 @@ async function run() {
 
     core.info(`Response: ${response.status}`);
     if (response.status !== 200) {
+      if (inputs.allowFailure) {
+        core.warning('Updating the pull request has failed');
+        return;
+      }
       core.error('Updating the pull request has failed');
     }
   }
